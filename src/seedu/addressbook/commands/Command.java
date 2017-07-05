@@ -17,6 +17,11 @@ public abstract class Command {
     private int targetIndex = -1;
 
     /**
+     * returns true for command types that mutate the data
+     */
+    public abstract boolean isMutating();
+    
+    /**
      * @param targetIndex last visible listing index of the target person
      */
     public Command(int targetIndex) {
