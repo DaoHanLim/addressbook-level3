@@ -42,9 +42,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (un
 Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
+`* * *` | user | view addressbook | view all existing entries in addressbook
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
+`* * *` | user | delete persons by tag | remove similar entries no longer needed
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | list all persons by tags/keywords | locate details of persons with same tag/keyword
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
@@ -52,6 +55,33 @@ Priority | As a ... | I want to ... | So that I can...
 ## Appendix B : Use Cases
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+
+#### Use case: Rename tag
+
+**MSS**
+
+1. User requests to rename tag
+2. Addressbook displays details of persons with the tag
+3. Addressbook asks for confirmation to rename tag
+4. User confirms the rename operation
+5. Addressbook renames all existences of tag <br>
+Use case ends.
+
+**Extensions**
+
+1a. New tag name already exists in addressbook
+
+> Addressbook gives warning message 
+  Use case resumes at step 2
+
+2a. Tag to be renamed does not exist
+
+> Addressbook shows error message <br>
+  Use case ends
+  
+4a. User fails to confirm operation
+
+> Use case ends
 
 #### Use case: Delete person
 
@@ -80,6 +110,8 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should not require more than 5 seconds to respond to user request.
+6. Should come up with UserGuide for instructions
 
 ## Appendix D : Glossary
 
